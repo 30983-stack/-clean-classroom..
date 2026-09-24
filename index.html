@@ -7,1705 +7,3076 @@
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,Tahoma,sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Tahoma,sans-serif;
 }
 
 body{
-background:#f1f5f9;
-color:#1e293b;
+    background:#f1f5f9;
+    color:#1e293b;
 }
 
 .hidden{
-display:none!important;
+    display:none!important;
 }
 
 button{
-border:0;
-cursor:pointer;
+    border:0;
+    cursor:pointer;
 }
 
 #loginPage{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-background:linear-gradient(135deg,#2563eb,#7c3aed);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
 }
 
 .login-box{
-width:100%;
-max-width:430px;
-background:white;
-padding:30px;
-border-radius:24px;
-box-shadow:0 20px 60px rgba(0,0,0,.25);
+    width:100%;
+    max-width:430px;
+    background:white;
+    padding:30px;
+    border-radius:24px;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
 .login-logo{
-text-align:center;
-font-size:55px;
+    text-align:center;
+    font-size:55px;
 }
 
 .login-title{
-text-align:center;
-font-size:28px;
-font-weight:bold;
-margin-top:8px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    margin-top:8px;
 }
 
 .login-subtitle{
-text-align:center;
-color:#64748b;
-margin:8px 0 25px;
+    text-align:center;
+    color:#64748b;
+    margin:8px 0 25px;
 }
 
 .role-buttons{
-display:flex;
-gap:8px;
-margin-bottom:20px;
+    display:flex;
+    gap:8px;
+    margin-bottom:20px;
 }
 
 .role-btn{
-flex:1;
-padding:12px 5px;
-border-radius:12px;
-background:#e2e8f0;
-color:#334155;
-font-weight:bold;
+    flex:1;
+    padding:12px 5px;
+    border-radius:12px;
+    background:#e2e8f0;
+    color:#334155;
+    font-weight:bold;
 }
 
 .role-btn.active{
-background:#2563eb;
-color:white;
+    background:#2563eb;
+    color:white;
 }
 
 .input-group{
-margin-bottom:15px;
+    margin-bottom:15px;
 }
 
 .input-group label{
-display:block;
-margin-bottom:7px;
-font-weight:bold;
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
 }
 
 .input-group input{
-width:100%;
-padding:14px;
-border:1px solid #cbd5e1;
-border-radius:12px;
-font-size:16px;
-outline:none;
+    width:100%;
+    padding:14px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color:#2563eb;
 }
 
 .login-btn{
-width:100%;
-padding:15px;
-border-radius:12px;
-background:#2563eb;
-color:white;
-font-size:17px;
-font-weight:bold;
+    width:100%;
+    padding:15px;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
 }
 
 .demo-box{
-margin-top:20px;
-padding:15px;
-border-radius:14px;
-background:#eff6ff;
-line-height:1.8;
-font-size:13px;
+    margin-top:20px;
+    padding:15px;
+    border-radius:14px;
+    background:#eff6ff;
+    line-height:1.8;
+    font-size:13px;
 }
 
 .firebase-status{
-margin-top:15px;
-text-align:center;
-font-size:13px;
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
 }
 
 .header{
-height:70px;
-background:#1e293b;
-color:white;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 25px;
-position:sticky;
-top:0;
-z-index:20;
+    height:70px;
+    background:#1e293b;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:sticky;
+    top:0;
+    z-index:20;
 }
 
 .header-title{
-font-size:21px;
-font-weight:bold;
+    font-size:21px;
+    font-weight:bold;
 }
 
 .header-user{
-display:flex;
-align-items:center;
-gap:15px;
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
 .logout-btn{
-padding:9px 15px;
-border-radius:10px;
-background:#ef4444;
-color:white;
-font-weight:bold;
+    padding:9px 15px;
+    border-radius:10px;
+    background:#ef4444;
+    color:white;
+    font-weight:bold;
 }
 
 .layout{
-display:flex;
-min-height:calc(100vh - 70px);
+    display:flex;
+    min-height:calc(100vh - 70px);
 }
 
 .sidebar{
-width:240px;
-background:white;
-border-right:1px solid #e2e8f0;
-padding:20px 12px;
+    width:240px;
+    background:white;
+    border-right:1px solid #e2e8f0;
+    padding:20px 12px;
 }
 
 .menu-btn{
-width:100%;
-text-align:left;
-padding:13px 15px;
-margin-bottom:7px;
-border-radius:12px;
-background:white;
-color:#334155;
-font-size:15px;
-font-weight:bold;
+    width:100%;
+    text-align:left;
+    padding:13px 15px;
+    margin-bottom:7px;
+    border-radius:12px;
+    background:white;
+    color:#334155;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.menu-btn:hover{
+    background:#eff6ff;
 }
 
 .menu-btn.active{
-background:#2563eb;
-color:white;
+    background:#2563eb;
+    color:white;
 }
 
 .content{
-flex:1;
-padding:25px;
-overflow:auto;
+    flex:1;
+    padding:25px;
+    overflow:auto;
 }
 
 .page{
-display:none;
+    display:none;
 }
 
 .page.active{
-display:block;
+    display:block;
 }
 
 .page-title{
-font-size:27px;
-font-weight:bold;
-margin-bottom:5px;
+    font-size:27px;
+    font-weight:bold;
+    margin-bottom:5px;
 }
 
 .page-subtitle{
-color:#64748b;
-margin-bottom:25px;
+    color:#64748b;
+    margin-bottom:25px;
 }
 
 .cards{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-margin-bottom:25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:25px;
 }
 
 .card{
-background:white;
-border-radius:18px;
-padding:20px;
-box-shadow:0 4px 15px rgba(15,23,42,.06);
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(15,23,42,.06);
 }
 
 .card-icon{
-font-size:30px;
+    font-size:30px;
 }
 
 .card-title{
-color:#64748b;
-margin-top:8px;
+    color:#64748b;
+    margin-top:8px;
 }
 
 .card-value{
-font-size:30px;
-font-weight:bold;
-margin-top:5px;
+    font-size:30px;
+    font-weight:bold;
+    margin-top:5px;
 }
 
 .table-box{
-background:white;
-border-radius:18px;
-padding:20px;
-overflow:auto;
-box-shadow:0 4px 15px rgba(15,23,42,.06);
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    overflow:auto;
+    box-shadow:0 4px 15px rgba(15,23,42,.06);
 }
 
 table{
-width:100%;
-border-collapse:collapse;
-min-width:750px;
+    width:100%;
+    border-collapse:collapse;
+    min-width:750px;
 }
 
 th{
-background:#f8fafc;
-padding:13px;
-text-align:left;
-color:#475569;
+    background:#f8fafc;
+    padding:13px;
+    text-align:left;
+    color:#475569;
 }
 
 td{
-padding:13px;
-border-top:1px solid #e2e8f0;
+    padding:13px;
+    border-top:1px solid #e2e8f0;
 }
 
 .status{
-display:inline-block;
-padding:6px 10px;
-border-radius:9px;
-font-weight:bold;
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:9px;
+    font-weight:bold;
 }
 
 .status-done{
-background:#dcfce7;
-color:#166534;
+    background:#dcfce7;
+    color:#166534;
 }
 
 .status-notdone{
-background:#fee2e2;
-color:#991b1b;
+    background:#fee2e2;
+    color:#991b1b;
 }
 
 .status-waiting{
-background:#fef3c7;
-color:#92400e;
+    background:#fef3c7;
+    color:#92400e;
 }
 
 .status-leave{
-background:#dbeafe;
-color:#1d4ed8;
+    background:#dbeafe;
+    color:#1d4ed8;
 }
 
 .status-pending{
-background:#fef3c7;
-color:#92400e;
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.status-rejected{
+    background:#fee2e2;
+    color:#991b1b;
 }
 
 .action-btn{
-padding:8px 12px;
-border-radius:9px;
-color:white;
-font-weight:bold;
-margin:2px;
+    padding:8px 12px;
+    border-radius:9px;
+    color:white;
+    font-weight:bold;
+    margin:2px;
 }
 
 .btn-done{
-background:#16a34a;
+    background:#16a34a;
 }
 
 .btn-notdone{
-background:#dc2626;
+    background:#dc2626;
 }
 
 .btn-approve{
-background:#2563eb;
+    background:#2563eb;
 }
 
 .btn-reject{
-background:#64748b;
+    background:#64748b;
 }
 
 .btn-leave{
-background:#7c3aed;
+    background:#7c3aed;
 }
 
 .notice{
-padding:15px;
-border-radius:14px;
-margin-bottom:20px;
-background:#eff6ff;
-border:1px solid #bfdbfe;
-color:#1e40af;
+    padding:15px;
+    border-radius:14px;
+    margin-bottom:20px;
+    background:#eff6ff;
+    border:1px solid #bfdbfe;
+    color:#1e40af;
 }
 
 .leaderboard{
-display:grid;
-gap:12px;
+    display:grid;
+    gap:12px;
 }
 
 .rank-item{
-background:white;
-border-radius:16px;
-padding:17px;
-display:flex;
-align-items:center;
-gap:15px;
-box-shadow:0 4px 12px rgba(15,23,42,.05);
+    background:white;
+    border-radius:16px;
+    padding:17px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    box-shadow:0 4px 12px rgba(15,23,42,.05);
 }
 
 .rank-number{
-width:45px;
-height:45px;
-min-width:45px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#e2e8f0;
-font-weight:bold;
-font-size:18px;
+    width:45px;
+    height:45px;
+    min-width:45px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#e2e8f0;
+    font-weight:bold;
+    font-size:18px;
 }
 
 .rank-info{
-flex:1;
+    flex:1;
 }
 
 .rank-name{
-font-weight:bold;
+    font-weight:bold;
 }
 
 .rank-detail{
-color:#64748b;
-font-size:13px;
-margin-top:4px;
+    color:#64748b;
+    font-size:13px;
+    margin-top:4px;
 }
 
 .rank-score{
-font-size:20px;
-font-weight:bold;
-color:#2563eb;
+    font-size:20px;
+    font-weight:bold;
+    color:#2563eb;
 }
 
 .empty{
-text-align:center;
-padding:30px;
-color:#64748b;
+    text-align:center;
+    padding:30px;
+    color:#64748b;
 }
 
 .modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.55);
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:100;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
 }
 
 .modal-box{
-width:100%;
-max-width:430px;
-background:white;
-border-radius:20px;
-padding:25px;
+    width:100%;
+    max-width:430px;
+    background:white;
+    border-radius:20px;
+    padding:25px;
 }
 
 .modal-title{
-font-size:22px;
-font-weight:bold;
-margin-bottom:15px;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
 .modal textarea{
-width:100%;
-min-height:120px;
-padding:12px;
-border:1px solid #cbd5e1;
-border-radius:12px;
-resize:vertical;
-font-size:15px;
+    width:100%;
+    min-height:120px;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
+    resize:vertical;
+    font-size:15px;
 }
 
 .modal-actions{
-display:flex;
-gap:10px;
-margin-top:15px;
+    display:flex;
+    gap:10px;
+    margin-top:15px;
 }
 
 .modal-actions button{
-flex:1;
-padding:12px;
-border-radius:10px;
-font-weight:bold;
-color:white;
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+    color:white;
 }
 
 @media(max-width:900px){
 
-.cards{
-grid-template-columns:repeat(2,1fr);
-}
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.sidebar{
-width:190px;
-}
-
+    .sidebar{
+        width:190px;
+    }
 }
 
 @media(max-width:650px){
 
-.header{
-padding:0 12px;
-}
+    .header{
+        padding:0 12px;
+    }
 
-.header-title{
-font-size:16px;
-}
+    .header-title{
+        font-size:16px;
+    }
 
-.header-user{
-font-size:12px;
-gap:6px;
-}
+    .header-user{
+        font-size:12px;
+        gap:6px;
+    }
 
-.logout-btn{
-padding:7px 9px;
-}
+    .logout-btn{
+        padding:7px 9px;
+    }
 
-.layout{
-display:block;
-}
+    .layout{
+        display:block;
+    }
 
-.sidebar{
-width:100%;
-display:flex;
-overflow-x:auto;
-padding:8px;
-border-right:0;
-border-bottom:1px solid #e2e8f0;
-}
+    .sidebar{
+        width:100%;
+        display:flex;
+        overflow-x:auto;
+        padding:8px;
+        border-right:0;
+        border-bottom:1px solid #e2e8f0;
+    }
 
-.menu-btn{
-min-width:120px;
-margin-right:5px;
-margin-bottom:0;
-}
+    .menu-btn{
+        min-width:120px;
+        margin-right:5px;
+        margin-bottom:0;
+    }
 
-.content{
-padding:15px;
-}
+    .content{
+        padding:15px;
+    }
 
-.cards{
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
+    .cards{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
 
-.card{
-padding:15px;
-}
+    .card{
+        padding:15px;
+    }
 
-.card-value{
-font-size:25px;
-}
+    .card-value{
+        font-size:25px;
+    }
 
-.page-title{
-font-size:23px;
-}
-
+    .page-title{
+        font-size:23px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= LOGIN ================= -->
+
 <div id="loginPage">
 
-<div class="login-box">
+    <div class="login-box">
 
-<div class="login-logo">🏫</div>
+        <div class="login-logo">🏫</div>
 
-<div class="login-title">
-Student Duty
+        <div class="login-title">
+            Student Duty
+        </div>
+
+        <div class="login-subtitle">
+            ระบบจัดเวรและหัวหน้าเวรเช็ค
+        </div>
+
+        <div class="role-buttons">
+
+            <button
+                id="studentRole"
+                class="role-btn active"
+                onclick="selectRole('student')">
+                👨‍🎓<br>นักเรียน
+            </button>
+
+            <button
+                id="leaderRole"
+                class="role-btn"
+                onclick="selectRole('leader')">
+                👑<br>หัวหน้าเวร
+            </button>
+
+            <button
+                id="teacherRole"
+                class="role-btn"
+                onclick="selectRole('teacher')">
+                👨‍🏫<br>ครู
+            </button>
+
+        </div>
+
+        <div class="input-group">
+
+            <label id="usernameLabel">
+                รหัสนักเรียน
+            </label>
+
+            <input
+                id="username"
+                type="text"
+                placeholder="เช่น 65001">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+                รหัสผ่าน
+            </label>
+
+            <input
+                id="password"
+                type="password"
+                placeholder="กรอกรหัสผ่าน">
+
+        </div>
+
+        <button
+            class="login-btn"
+            onclick="login()">
+            🔐 เข้าสู่ระบบ
+        </button>
+
+        <div class="demo-box">
+
+            <b>บัญชีสำหรับทดสอบ</b><br>
+
+            👨‍🎓 นักเรียน: 65001 / 1234<br>
+            👑 หัวหน้าเวร: leader / 1234<br>
+            👨‍🏫 ครู: teacher / 1234
+
+        </div>
+
+        <div
+            id="firebaseStatus"
+            class="firebase-status">
+            🔄 กำลังเชื่อมต่อ Firebase...
+        </div>
+
+    </div>
 </div>
 
-<div class="login-subtitle">
-ระบบจัดเวรและหัวหน้าเวรเช็ค
-</div>
 
-<div class="role-buttons">
-
-<button id="studentRole"
-class="role-btn active"
-onclick="selectRole('student')">
-👨‍🎓<br>นักเรียน
-</button>
-
-<button id="leaderRole"
-class="role-btn"
-onclick="selectRole('leader')">
-👑<br>หัวหน้าเวร
-</button>
-
-<button id="teacherRole"
-class="role-btn"
-onclick="selectRole('teacher')">
-👨‍🏫<br>ครู
-</button>
-
-</div>
-
-<div class="input-group">
-
-<label id="usernameLabel">
-รหัสนักเรียน
-</label>
-
-<input id="username"
-type="text"
-placeholder="เช่น 65001">
-
-</div>
-
-<div class="input-group">
-
-<label>
-รหัสผ่าน
-</label>
-
-<input id="password"
-type="password"
-placeholder="กรอกรหัสผ่าน">
-
-</div>
-
-<button class="login-btn"
-onclick="login()">
-🔐 เข้าสู่ระบบ
-</button>
-
-<div class="demo-box">
-
-<b>บัญชีสำหรับทดสอบ</b><br>
-
-👨‍🎓 นักเรียน: 65001 / 1234<br>
-👑 หัวหน้าเวร: leader / 1234<br>
-👨‍🏫 ครู: teacher / 1234
-
-</div>
-
-<div id="firebaseStatus"
-class="firebase-status">
-🔄 กำลังเชื่อมต่อ Firebase...
-</div>
-
-</div>
-</div>
-
+<!-- ================= APP ================= -->
 
 <div id="appPage" class="hidden">
 
-<div class="header">
+    <div class="header">
 
-<div class="header-title">
-🏫 Student Duty Management
+        <div class="header-title">
+            🏫 Student Duty Management
+        </div>
+
+        <div class="header-user">
+
+            <span id="currentUserName">
+                ผู้ใช้งาน
+            </span>
+
+            <button
+                class="logout-btn"
+                onclick="logout()">
+                ออกจากระบบ
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="layout">
+
+        <div class="sidebar">
+
+            <button
+                class="menu-btn active"
+                onclick="showPage('dashboard',this)">
+                🏠 หน้าหลัก
+            </button>
+
+            <button
+                class="menu-btn"
+                onclick="showPage('duty',this)">
+                📅 ตารางเวร
+            </button>
+
+            <button
+                class="menu-btn"
+                onclick="showPage('leaderboard',this)">
+                🏆 Leaderboard
+            </button>
+
+            <button
+                class="menu-btn"
+                onclick="showPage('requests',this)">
+                📝 คำขอหยุดเวร
+            </button>
+
+            <button
+                class="menu-btn"
+                onclick="showPage('students',this)">
+                👥 นักเรียน
+            </button>
+
+            <button
+                class="menu-btn"
+                onclick="showPage('history',this)">
+                📜 ประวัติ
+            </button>
+
+        </div>
+
+
+        <div class="content">
+
+
+            <!-- DASHBOARD -->
+
+            <div
+                id="dashboard"
+                class="page active">
+
+                <div class="page-title">
+                    Dashboard
+                </div>
+
+                <div class="page-subtitle">
+                    ภาพรวมระบบจัดเวรนักเรียน
+                </div>
+
+                <div
+                    id="dashboardCards"
+                    class="cards">
+                </div>
+
+                <div class="notice">
+
+                    ⭐ <b>ระบบหักคะแนนอัตโนมัติ</b><br>
+
+                    เมื่อหัวหน้าเวรหรือครูกด
+                    <b>✗ ไม่ทำ</b>
+                    ระบบจะหักคะแนน
+                    <b>1 คะแนน</b>
+                    อัตโนมัติ
+
+                    <br><br>
+
+                    🛡️ เวรเดียวกันจะไม่ถูกหักซ้ำ
+
+                    <br>
+
+                    📝 หากอนุมัติการลา จะไม่หักคะแนน
+
+                </div>
+
+                <div class="table-box">
+
+                    <h3 style="margin-bottom:15px">
+                        📅 เวรวันนี้
+                    </h3>
+
+                    <div id="todayDuty">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DUTY -->
+
+            <div
+                id="duty"
+                class="page">
+
+                <div class="page-title">
+                    📅 ตารางเวร
+                </div>
+
+                <div class="page-subtitle">
+                    ตรวจสอบและจัดการเวรนักเรียน
+                </div>
+
+                <div class="table-box">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>วันที่</th>
+                                <th>นักเรียน</th>
+                                <th>สถานะ</th>
+                                <th>เหตุผล</th>
+                                <th>การจัดการ</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="dutyTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- LEADERBOARD -->
+
+            <div
+                id="leaderboard"
+                class="page">
+
+                <div class="page-title">
+                    🏆 Leaderboard
+                </div>
+
+                <div class="page-subtitle">
+                    อันดับจากคะแนนและสถิติการทำเวร
+                </div>
+
+                <div
+                    id="leaderboardList"
+                    class="leaderboard">
+                </div>
+
+            </div>
+
+
+            <!-- REQUESTS -->
+
+            <div
+                id="requests"
+                class="page">
+
+                <div class="page-title">
+                    📝 คำขอหยุดเวร
+                </div>
+
+                <div class="page-subtitle">
+                    ตรวจสอบและอนุมัติคำขอหยุดเวร
+                </div>
+
+                <div class="table-box">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>นักเรียน</th>
+                                <th>วันที่</th>
+                                <th>เหตุผล</th>
+                                <th>สถานะ</th>
+                                <th>จัดการ</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="requestTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- STUDENTS -->
+
+            <div
+                id="students"
+                class="page">
+
+                <div class="page-title">
+                    👥 นักเรียน
+                </div>
+
+                <div class="page-subtitle">
+                    คะแนนและสถิติการทำเวร
+                </div>
+
+                <div class="table-box">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>รหัส</th>
+                                <th>ชื่อ</th>
+                                <th>คะแนน</th>
+                                <th>ทำเวร</th>
+                                <th>ไม่ทำเวร</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="studentTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY -->
+
+            <div
+                id="history"
+                class="page">
+
+                <div class="page-title">
+                    📜 ประวัติ
+                </div>
+
+                <div class="page-subtitle">
+                    ประวัติการตรวจเวรและการหักคะแนน
+                </div>
+
+                <div class="table-box">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>เวลา</th>
+                                <th>รายการ</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="historyTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<div class="header-user">
 
-<span id="currentUserName">
-ผู้ใช้งาน
-</span>
+<!-- ================= LEAVE MODAL ================= -->
 
-<button class="logout-btn"
-onclick="logout()">
-ออกจากระบบ
-</button>
+<div
+    id="leaveModal"
+    class="modal hidden">
 
-</div>
-</div>
+    <div class="modal-box">
 
+        <div class="modal-title">
+            📝 ขอหยุดเวร
+        </div>
 
-<div class="layout">
+        <p style="margin-bottom:12px;color:#64748b">
+            กรุณาระบุเหตุผลในการขอหยุดเวร
+        </p>
 
-<div class="sidebar">
+        <textarea
+            id="leaveReason"
+            placeholder="เช่น ไม่สบาย / มีกิจกรรมโรงเรียน / มีเหตุจำเป็น">
+        </textarea>
 
-<button class="menu-btn active"
-onclick="showPage('dashboard',this)">
-🏠 หน้าหลัก
-</button>
+        <div class="modal-actions">
 
-<button class="menu-btn"
-onclick="showPage('duty',this)">
-📅 ตารางเวร
-</button>
+            <button
+                style="background:#2563eb"
+                onclick="confirmLeave()">
+                ส่งคำขอ
+            </button>
 
-<button class="menu-btn"
-onclick="showPage('leaderboard',this)">
-🏆 Leaderboard
-</button>
+            <button
+                style="background:#64748b"
+                onclick="closeLeaveModal()">
+                ยกเลิก
+            </button>
 
-<button class="menu-btn"
-onclick="showPage('requests',this)">
-📝 คำขอหยุดเวร
-</button>
+        </div>
 
-<button class="menu-btn"
-onclick="showPage('students',this)">
-👥 นักเรียน
-</button>
-
-<button class="menu-btn"
-onclick="showPage('history',this)">
-📜 ประวัติ
-</button>
-
+    </div>
 </div>
 
 
-<div class="content">
-
-
-<div id="dashboard" class="page active">
-
-<div class="page-title">
-Dashboard
-</div>
-
-<div class="page-subtitle">
-ภาพรวมระบบจัดเวรนักเรียน
-</div>
-
-<div id="dashboardCards"
-class="cards"></div>
-
-<div class="notice">
-
-⭐ <b>ระบบหักคะแนนอัตโนมัติ</b><br>
-
-เมื่อหัวหน้าเวรหรือครูกด
-<b>✗ ไม่ทำ</b>
-ระบบจะหักคะแนน
-<b>1 คะแนน</b> อัตโนมัติ
-
-<br><br>
-
-🛡️ เวรเดียวกันจะไม่ถูกหักซ้ำ
-
-<br>
-
-📝 หากอนุมัติการลา จะไม่หักคะแนน
-
-</div>
-
-<div class="table-box">
-
-<h3 style="margin-bottom:15px">
-📅 เวรวันนี้
-</h3>
-
-<div id="todayDuty"></div>
-
-</div>
-
-</div>
-
-
-<div id="duty" class="page">
-
-<div class="page-title">
-📅 ตารางเวร
-</div>
-
-<div class="page-subtitle">
-ตรวจสอบและจัดการเวรนักเรียน
-</div>
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-<th>วันที่</th>
-<th>นักเรียน</th>
-<th>สถานะ</th>
-<th>เหตุผล</th>
-<th>การจัดการ</th>
-</tr>
-
-</thead>
-
-<tbody id="dutyTable"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<div id="leaderboard" class="page">
-
-<div class="page-title">
-🏆 Leaderboard
-</div>
-
-<div class="page-subtitle">
-อันดับจากคะแนนและสถิติการทำเวร
-</div>
-
-<div id="leaderboardList"
-class="leaderboard">
-</div>
-
-</div>
-
-
-<div id="requests" class="page">
-
-<div class="page-title">
-📝 คำขอหยุดเวร
-</div>
-
-<div class="page-subtitle">
-ตรวจสอบและอนุมัติคำขอหยุดเวร
-</div>
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-<th>นักเรียน</th>
-<th>วันที่</th>
-<th>เหตุผล</th>
-<th>สถานะ</th>
-<th>จัดการ</th>
-</tr>
-
-</thead>
-
-<tbody id="requestTable"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<div id="students" class="page">
-
-<div class="page-title">
-👥 นักเรียน
-</div>
-
-<div class="page-subtitle">
-คะแนนและสถิติการทำเวร
-</div>
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-<th>รหัส</th>
-<th>ชื่อ</th>
-<th>คะแนน</th>
-<th>ทำเวร</th>
-<th>ไม่ทำเวร</th>
-</tr>
-
-</thead>
-
-<tbody id="studentTable"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<div id="history" class="page">
-
-<div class="page-title">
-📜 ประวัติ
-</div>
-
-<div class="page-subtitle">
-ประวัติการตรวจเวรและการหักคะแนน
-</div>
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-<th>เวลา</th>
-<th>รายการ</th>
-</tr>
-
-</thead>
-
-<tbody id="historyTable"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-</div>
-</div>
-</div>
-
-
-<div id="leaveModal"
-class="modal hidden">
-
-<div class="modal-box">
-
-<div class="modal-title">
-📝 ขอหยุดเวร
-</div>
-
-<p style="margin-bottom:12px;color:#64748b">
-กรุณาระบุเหตุผลในการขอหยุดเวร
-</p>
-
-<textarea id="leaveReason"
-placeholder="เช่น ไม่สบาย / มีกิจกรรมโรงเรียน / มีเหตุจำเป็น"></textarea>
-
-<div class="modal-actions">
-
-<button
-style="background:#2563eb"
-onclick="confirmLeave()">
-ส่งคำขอ
-</button>
-
-<button
-style="background:#64748b"
-onclick="closeLeaveModal()">
-ยกเลิก
-</button>
-
-</div>
-
-</div>
-</div>
-
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
 import {
-initializeApp
+    initializeApp
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
 import {
-getFirestore,
-collection,
-doc,
-getDocs,
-setDoc,
-updateDoc,
-addDoc,
-onSnapshot,
-runTransaction
+    getFirestore,
+    collection,
+    doc,
+    getDocs,
+    setDoc,
+    updateDoc,
+    addDoc,
+    onSnapshot,
+    runTransaction
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
-const firebaseConfig={
+const firebaseConfig = {
 
-apiKey:"AIzaSyD_ybe7jAxKtee9b3T9lYRLJGF-hTr-FY",
+    apiKey:"AIzaSyD_ybe7jAxKtee9b3T9lYRLJGF-hTr-FY",
 
-authDomain:"student-duty-feb7e.firebaseapp.com",
+    authDomain:"student-duty-feb7e.firebaseapp.com",
 
-projectId:"student-duty-feb7e",
+    projectId:"student-duty-feb7e",
 
-storageBucket:"student-duty-feb7e.firebasestorage.app",
+    storageBucket:"student-duty-feb7e.firebasestorage.app",
 
-messagingSenderId:"624965373640",
+    messagingSenderId:"624965373640",
 
-appId:"1:624965373640:web:ab1f9b2bc318c4e18f9ffd",
+    appId:"1:624965373640:web:ab1f9b2bc318c4e18f9ffd",
 
-measurementId:"G-JNWM68ZCZ6"
+    measurementId:"G-JNWM68ZCZ6"
 
 };
 
 
-let db=null;
+let db = null;
+
+let currentRole = "student";
+
+let currentUser = null;
+
+let students = [];
+
+let duties = [];
+
+let requests = [];
+
+let histories = [];
+
+let selectedDutyId = null;
+
+
+/* ================= FIREBASE START ================= */
 
 try{
 
-const app=initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
 
-db=getFirestore(app);
+    db = getFirestore(app);
 
 }catch(error){
 
-console.error(error);
+    console.error("Firebase init error:",error);
 
 }
 
 
-let currentRole="student";
-let currentUser=null;
-
-let students=[];
-let duties=[];
-let requests=[];
-let histories=[];
-
-let selectedDutyId=null;
-
+/* ================= ROLE ================= */
 
 function selectRole(role){
 
-currentRole=role;
+    currentRole = role;
 
-document.querySelectorAll(".role-btn")
-.forEach(btn=>{
-btn.classList.remove("active");
-});
+    document
+        .querySelectorAll(".role-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
 
-document.getElementById(role+"Role")
-.classList.add("active");
+    document
+        .getElementById(role+"Role")
+        .classList.add("active");
 
-const label=document.getElementById("usernameLabel");
-const input=document.getElementById("username");
+    const label =
+        document.getElementById("usernameLabel");
 
-if(role==="student"){
+    const input =
+        document.getElementById("username");
 
-label.textContent="รหัสนักเรียน";
-input.placeholder="เช่น 65001";
+    if(role === "student"){
 
-}else{
+        label.textContent = "รหัสนักเรียน";
 
-label.textContent="ชื่อผู้ใช้";
-input.placeholder=role;
+        input.placeholder = "เช่น 65001";
+
+    }else{
+
+        label.textContent = "ชื่อผู้ใช้";
+
+        input.placeholder = role;
+
+    }
 
 }
 
-}
 
+/* ================= SEED STUDENT ================= */
 
 async function seedStudents(){
 
-const snap=await getDocs(
-collection(db,"students")
-);
+    const snap =
+        await getDocs(
+            collection(db,"students")
+        );
 
-if(snap.empty){
+    if(snap.empty){
 
-await setDoc(
-doc(db,"students","65001"),
-{
-id:"65001",
-name:"รัชชานนท์",
-password:"1234",
-score:100,
-createdAt:new Date().toISOString()
+        await setDoc(
+            doc(db,"students","65001"),
+            {
+                id:"65001",
+                name:"รัชชานนท์",
+                password:"1234",
+                score:100,
+                createdAt:new Date().toISOString()
+            }
+        );
+
+    }else{
+
+        for(const item of snap.docs){
+
+            const data = item.data();
+
+            if(typeof data.score !== "number"){
+
+                await updateDoc(
+                    doc(db,"students",item.id),
+                    {
+                        score:100
+                    }
+                );
+
+            }
+
+        }
+
+    }
+
 }
-);
 
-}else{
 
-for(const item of snap.docs){
-
-const data=item.data();
-
-if(typeof data.score!=="number"){
-
-await updateDoc(
-doc(db,"students",item.id),
-{score:100}
-);
-
-}
-
-}
-
-}
-
-}
-
+/* ================= SEED DUTIES ================= */
 
 async function seedDuties(){
 
-const snap=await getDocs(
-collection(db,"duties")
-);
+    const snap =
+        await getDocs(
+            collection(db,"duties")
+        );
 
-if(!snap.empty){
-return;
+    if(!snap.empty){
+        return;
+    }
+
+    const studentSnap =
+        await getDocs(
+            collection(db,"students")
+        );
+
+    if(studentSnap.empty){
+        return;
+    }
+
+    const list =
+        studentSnap.docs.map(d=>({
+            ...d.data(),
+            docId:d.id
+        }));
+
+    const today = new Date();
+
+    for(let i=0;i<30;i++){
+
+        const date = new Date(today);
+
+        date.setDate(
+            today.getDate()+i
+        );
+
+        const dateText =
+            date.toISOString()
+                .split("T")[0];
+
+        const student =
+            list[i % list.length];
+
+        const dutyRef =
+            doc(
+                collection(db,"duties")
+            );
+
+        await setDoc(
+            dutyRef,
+            {
+                dutyDate:dateText,
+
+                studentId:String(student.id),
+
+                studentName:student.name,
+
+                status:"waiting",
+
+                reason:"",
+
+                approved:false,
+
+                scoreDeducted:false,
+
+                createdAt:
+                    new Date().toISOString()
+            }
+        );
+
+    }
+
 }
 
-const studentSnap=await getDocs(
-collection(db,"students")
-);
 
-if(studentSnap.empty){
-return;
-}
-
-const list=studentSnap.docs.map(d=>({
-...d.data(),
-docId:d.id
-}));
-
-const today=new Date();
-
-for(let i=0;i<30;i++){
-
-const date=new Date(today);
-
-date.setDate(today.getDate()+i);
-
-const dateText=
-date.toISOString().split("T")[0];
-
-const student=
-list[i%list.length];
-
-const dutyRef=
-doc(collection(db,"duties"));
-
-await setDoc(dutyRef,{
-
-dutyDate:dateText,
-
-studentId:String(student.id),
-
-studentName:student.name,
-
-status:"waiting",
-
-reason:"",
-
-approved:false,
-
-scoreDeducted:false,
-
-createdAt:new Date().toISOString()
-
-});
-
-}
-
-}
-
+/* ================= LOAD DATA ================= */
 
 async function loadData(){
 
-const studentSnap=await getDocs(
-collection(db,"students")
-);
+    const studentSnap =
+        await getDocs(
+            collection(db,"students")
+        );
 
-students=studentSnap.docs.map(d=>({
-...d.data(),
-docId:d.id
-}));
-
-
-const dutySnap=await getDocs(
-collection(db,"duties")
-);
-
-duties=dutySnap.docs.map(d=>({
-...d.data(),
-id:d.id
-}));
+    students =
+        studentSnap.docs.map(d=>({
+            ...d.data(),
+            docId:d.id
+        }));
 
 
-const requestSnap=await getDocs(
-collection(db,"requests")
-);
+    const dutySnap =
+        await getDocs(
+            collection(db,"duties")
+        );
 
-requests=requestSnap.docs.map(d=>({
-...d.data(),
-id:d.id
-}));
+    duties =
+        dutySnap.docs.map(d=>({
+            ...d.data(),
+            id:d.id
+        }));
 
 
-const historySnap=await getDocs(
-collection(db,"history")
-);
+    const requestSnap =
+        await getDocs(
+            collection(db,"requests")
+        );
 
-histories=historySnap.docs.map(d=>({
-...d.data(),
-id:d.id
-}));
+    requests =
+        requestSnap.docs.map(d=>({
+            ...d.data(),
+            id:d.id
+        }));
+
+
+    const historySnap =
+        await getDocs(
+            collection(db,"history")
+        );
+
+    histories =
+        historySnap.docs.map(d=>({
+            ...d.data(),
+            id:d.id
+        }));
 
 }
 
+
+/* ================= LISTENERS ================= */
 
 function startListeners(){
 
-onSnapshot(
-collection(db,"students"),
-snap=>{
+    onSnapshot(
+        collection(db,"students"),
+        snap=>{
 
-students=snap.docs.map(d=>({
-...d.data(),
-docId:d.id
-}));
+            students =
+                snap.docs.map(d=>({
+                    ...d.data(),
+                    docId:d.id
+                }));
 
-renderAll();
+            renderAll();
 
-},
-error=>console.error(error)
-);
-
-
-onSnapshot(
-collection(db,"duties"),
-snap=>{
-
-duties=snap.docs.map(d=>({
-...d.data(),
-id:d.id
-}));
-
-renderAll();
-
-},
-error=>console.error(error)
-);
+        },
+        error=>{
+            console.error("students listener:",error);
+        }
+    );
 
 
-onSnapshot(
-collection(db,"requests"),
-snap=>{
+    onSnapshot(
+        collection(db,"duties"),
+        snap=>{
 
-requests=snap.docs.map(d=>({
-...d.data(),
-id:d.id
-}));
+            duties =
+                snap.docs.map(d=>({
+                    ...d.data(),
+                    id:d.id
+                }));
 
-renderAll();
+            renderAll();
 
-},
-error=>console.error(error)
-);
+        },
+        error=>{
+            console.error("duties listener:",error);
+        }
+    );
 
 
-onSnapshot(
-collection(db,"history"),
-snap=>{
+    onSnapshot(
+        collection(db,"requests"),
+        snap=>{
 
-histories=snap.docs.map(d=>({
-...d.data(),
-id:d.id
-}));
+            requests =
+                snap.docs.map(d=>({
+                    ...d.data(),
+                    id:d.id
+                }));
 
-renderAll();
+            renderAll();
 
-},
-error=>console.error(error)
-);
+        },
+        error=>{
+            console.error("requests listener:",error);
+        }
+    );
+
+
+    onSnapshot(
+        collection(db,"history"),
+        snap=>{
+
+            histories =
+                snap.docs.map(d=>({
+                    ...d.data(),
+                    id:d.id
+                }));
+
+            renderAll();
+
+        },
+        error=>{
+            console.error("history listener:",error);
+        }
+    );
 
 }
 
+
+/* ================= INITIALIZE ================= */
 
 async function initializeSystem(){
 
-const status=
-document.getElementById("firebaseStatus");
+    const status =
+        document.getElementById("firebaseStatus");
 
-try{
+    try{
 
-if(!db){
-throw new Error("Firebase ไม่พร้อมใช้งาน");
+        if(!db){
+
+            throw new Error(
+                "Firebase ไม่พร้อมใช้งาน"
+            );
+
+        }
+
+        status.innerHTML =
+            "🟡 กำลังโหลดข้อมูล...";
+
+        await seedStudents();
+
+        await seedDuties();
+
+        await loadData();
+
+        startListeners();
+
+        status.innerHTML =
+            "🟢 Firebase เชื่อมต่อแล้ว";
+
+        renderAll();
+
+    }catch(error){
+
+        console.error(
+            "Firebase Error:",
+            error
+        );
+
+        status.innerHTML =
+            "🔴 Firebase เชื่อมต่อไม่สำเร็จ";
+
+    }
+
 }
 
-status.innerHTML="🟡 กำลังโหลดข้อมูล...";
 
-await seedStudents();
-
-await seedDuties();
-
-await loadData();
-
-startListeners();
-
-status.innerHTML="🟢 Firebase เชื่อมต่อแล้ว";
-
-renderAll();
-
-}catch(error){
-
-console.error("Firebase Error:",error);
-
-status.innerHTML=
-"🔴 Firebase เชื่อมต่อไม่สำเร็จ";
-
-}
-
-}
-
+/* ================= LOGIN ================= */
 
 async function login(){
 
-const username=
-document.getElementById("username")
-.value.trim();
+    const username =
+        document.getElementById("username")
+            .value.trim();
 
-const password=
-document.getElementById("password")
-.value.trim();
+    const password =
+        document.getElementById("password")
+            .value.trim();
 
-if(!username||!password){
+    if(!username || !password){
 
-alert("กรุณากรอกข้อมูลให้ครบ");
+        alert(
+            "กรุณากรอกข้อมูลให้ครบ"
+        );
 
-return;
+        return;
+
+    }
+
+    try{
+
+        if(!db){
+
+            throw new Error(
+                "Firebase ยังไม่พร้อมใช้งาน"
+            );
+
+        }
+
+
+        /* STUDENT */
+
+        if(currentRole === "student"){
+
+            const snap =
+                await getDocs(
+                    collection(db,"students")
+                );
+
+            const student =
+                snap.docs
+                    .map(d=>({
+                        ...d.data(),
+                        docId:d.id
+                    }))
+                    .find(s=>
+                        String(s.id) === username &&
+                        String(s.password) === password
+                    );
+
+            if(!student){
+
+                alert(
+                    "รหัสนักเรียนหรือรหัสผ่านไม่ถูกต้อง"
+                );
+
+                return;
+
+            }
+
+            currentUser = student;
+
+        }
+
+
+        /* LEADER */
+
+        else if(currentRole === "leader"){
+
+            if(
+                username !== "leader" ||
+                password !== "1234"
+            ){
+
+                alert(
+                    "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
+                );
+
+                return;
+
+            }
+
+            currentUser = {
+
+                id:"leader",
+
+                name:"หัวหน้าเวร"
+
+            };
+
+        }
+
+
+        /* TEACHER */
+
+        else if(currentRole === "teacher"){
+
+            if(
+                username !== "teacher" ||
+                password !== "1234"
+            ){
+
+                alert(
+                    "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
+                );
+
+                return;
+
+            }
+
+            currentUser = {
+
+                id:"teacher",
+
+                name:"คุณครู"
+
+            };
+
+        }
+
+
+        document
+            .getElementById("loginPage")
+            .classList.add("hidden");
+
+        document
+            .getElementById("appPage")
+            .classList.remove("hidden");
+
+        document
+            .getElementById("currentUserName")
+            .textContent = currentUser.name;
+
+        renderAll();
+
+    }catch(error){
+
+        console.error(
+            "Login error:",
+            error
+        );
+
+        alert(
+            "เข้าสู่ระบบไม่สำเร็จ\n\n"+
+            error.message
+        );
+
+    }
 
 }
 
-try{
 
-if(!db){
-
-throw new Error(
-"Firebase ยังไม่พร้อมใช้งาน"
-);
-
-}
-
-
-if(currentRole==="student"){
-
-const snap=await getDocs(
-collection(db,"students")
-);
-
-const student=snap.docs
-.map(d=>({
-...d.data(),
-docId:d.id
-}))
-.find(s=>
-String(s.id)===username &&
-String(s.password)===password
-);
-
-if(!student){
-
-alert(
-"รหัสนักเรียนหรือรหัสผ่านไม่ถูกต้อง"
-);
-
-return;
-
-}
-
-currentUser=student;
-
-}
-
-
-else if(currentRole==="leader"){
-
-if(username!=="leader"||
-password!=="1234"){
-
-alert(
-"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
-);
-
-return;
-
-}
-
-currentUser={
-id:"leader",
-name:"หัวหน้าเวร"
-};
-
-}
-
-
-else if(currentRole==="teacher"){
-
-if(username!=="teacher"||
-password!=="1234"){
-
-alert(
-"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
-);
-
-return;
-
-}
-
-currentUser={
-id:"teacher",
-name:"คุณครู"
-};
-
-}
-
-
-document.getElementById("loginPage")
-.classList.add("hidden");
-
-document.getElementById("appPage")
-.classList.remove("hidden");
-
-document.getElementById("currentUserName")
-.textContent=currentUser.name;
-
-renderAll();
-
-}catch(error){
-
-console.error(error);
-
-alert(
-"เข้าสู่ระบบไม่สำเร็จ\n\n"+
-error.message
-);
-
-}
-
-}
-
+/* ================= LOGOUT ================= */
 
 function logout(){
 
-currentUser=null;
+    currentUser = null;
 
-document.getElementById("appPage")
-.classList.add("hidden");
+    document
+        .getElementById("appPage")
+        .classList.add("hidden");
 
-document.getElementById("loginPage")
-.classList.remove("hidden");
+    document
+        .getElementById("loginPage")
+        .classList.remove("hidden");
 
-document.getElementById("username").value="";
-document.getElementById("password").value="";
+    document
+        .getElementById("username")
+        .value = "";
+
+    document
+        .getElementById("password")
+        .value = "";
 
 }
 
+
+/* ================= PAGE ================= */
 
 function showPage(pageId,button){
 
-document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
+    document
+        .querySelectorAll(".page")
+        .forEach(p=>{
+            p.classList.remove("active");
+        });
 
-const page=document.getElementById(pageId);
+    const page =
+        document.getElementById(pageId);
 
-if(page){
-page.classList.add("active");
+    if(page){
+
+        page.classList.add("active");
+
+    }
+
+    document
+        .querySelectorAll(".menu-btn")
+        .forEach(b=>{
+            b.classList.remove("active");
+        });
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+    renderAll();
+
 }
 
-document.querySelectorAll(".menu-btn")
-.forEach(b=>b.classList.remove("active"));
 
-if(button){
-button.classList.add("active");
-}
-
-renderAll();
-
-}
-
+/* ================= STATUS ================= */
 
 function statusText(status){
 
-if(status==="done"){
+    if(status === "done"){
 
-return `<span class="status status-done">✓ ทำแล้ว</span>`;
+        return `
+            <span class="status status-done">
+                ✓ ทำแล้ว
+            </span>
+        `;
+
+    }
+
+    if(status === "notdone"){
+
+        return `
+            <span class="status status-notdone">
+                ✗ ไม่ทำ
+            </span>
+        `;
+
+    }
+
+    if(status === "leave"){
+
+        return `
+            <span class="status status-leave">
+                📝 ลา
+            </span>
+        `;
+
+    }
+
+    if(status === "leave_pending"){
+
+        return `
+            <span class="status status-pending">
+                📝 รออนุมัติลา
+            </span>
+        `;
+
+    }
+
+    if(status === "rejected"){
+
+        return `
+            <span class="status status-rejected">
+                ✗ ลาถูกปฏิเสธ
+            </span>
+        `;
+
+    }
+
+    return `
+        <span class="status status-waiting">
+            ⏳ รอตรวจ
+        </span>
+    `;
 
 }
 
-if(status==="notdone"){
 
-return `<span class="status status-notdone">✗ ไม่ทำ</span>`;
-
-}
-
-if(status==="leave"){
-
-return `<span class="status status-leave">📝 ลา</span>`;
-
-}
-
-return `<span class="status status-waiting">⏳ รอตรวจ</span>`;
-
-}
-
+/* ================= ACTION BUTTONS ================= */
 
 function actionButtons(d){
 
-if(!currentUser){
-return "";
+    if(!currentUser){
+        return "";
+    }
+
+
+    /* STUDENT */
+
+    if(currentRole === "student"){
+
+        if(
+            String(d.studentId) ===
+            String(currentUser.id) &&
+            d.status === "waiting"
+        ){
+
+            return `
+                <button
+                    class="action-btn btn-leave"
+                    onclick="sendLeave('${d.id}')">
+                    📝 ขอหยุดเวร
+                </button>
+            `;
+
+        }
+
+        return "";
+
+    }
+
+
+    /* LEADER / TEACHER */
+
+    if(
+        currentRole === "leader" ||
+        currentRole === "teacher"
+    ){
+
+        if(d.status === "waiting"){
+
+            return `
+
+                <button
+                    class="action-btn btn-done"
+                    onclick="markDone('${d.id}')">
+                    ✓ ทำแล้ว
+                </button>
+
+                <button
+                    class="action-btn btn-notdone"
+                    onclick="markNotDone('${d.id}')">
+                    ✗ ไม่ทำ
+                </button>
+
+            `;
+
+        }
+
+    }
+
+    return "";
+
 }
 
 
-if(currentRole==="student"){
-
-if(
-String(d.studentId)===String(currentUser.id)&&
-d.status==="waiting"
-){
-
-return `
-<button
-class="action-btn btn-leave"
-onclick="sendLeave('${d.id}')">
-📝 ขอหยุดเวร
-</button>
-`;
-
-}
-
-return "";
-
-}
-
-
-if(
-currentRole==="leader"||
-currentRole==="teacher"
-){
-
-if(d.status==="waiting"){
-
-return `
-
-<button
-class="action-btn btn-done"
-onclick="markDone('${d.id}')">
-✓ ทำแล้ว
-</button>
-
-<button
-class="action-btn btn-notdone"
-onclick="markNotDone('${d.id}')">
-✗ ไม่ทำ
-</button>
-
-`;
-
-}
-
-}
-
-return "";
-
-}
-
+/* ================= MARK DONE ================= */
 
 async function markDone(id){
 
-const duty=duties.find(d=>d.id===id);
+    const duty =
+        duties.find(d=>d.id===id);
 
-if(!duty){
+    if(!duty){
 
-alert("ไม่พบข้อมูลเวร");
+        alert("ไม่พบข้อมูลเวร");
 
-return;
+        return;
+
+    }
+
+    if(duty.status !== "waiting"){
+
+        alert("เวรนี้ถูกตรวจแล้ว");
+
+        return;
+
+    }
+
+    try{
+
+        await updateDoc(
+            doc(db,"duties",id),
+            {
+                status:"done",
+                approved:true,
+                checkedBy:currentUser.name,
+                checkedAt:
+                    new Date().toISOString()
+            }
+        );
+
+        await addDoc(
+            collection(db,"history"),
+            {
+                time:
+                    new Date().toISOString(),
+
+                message:
+                    `✓ ${duty.studentName} ทำเวรวันที่ ${duty.dutyDate} แล้ว โดย ${currentUser.name}`,
+
+                type:"done",
+
+                studentId:duty.studentId,
+
+                dutyId:id
+
+            }
+        );
+
+        alert(
+            "✅ บันทึกว่าทำเวรแล้ว"
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "บันทึกไม่สำเร็จ\n\n"+
+            error.message
+        );
+
+    }
 
 }
 
-if(duty.status!=="waiting"){
 
-alert("เวรนี้ถูกตรวจแล้ว");
-
-return;
-
-}
-
-try{
-
-await updateDoc(
-doc(db,"duties",id),
-{
-status:"done",
-approved:true,
-checkedBy:currentUser.name,
-checkedAt:new Date().toISOString()
-}
-);
-
-await addDoc(
-collection(db,"history"),
-{
-time:new Date().toISOString(),
-message:
-`✓ ${duty.studentName} ทำเวรวันที่ ${duty.dutyDate} แล้ว โดย ${currentUser.name}`,
-type:"done",
-studentId:duty.studentId,
-dutyId:id
-}
-);
-
-alert("✅ บันทึกว่าทำเวรแล้ว");
-
-}catch(error){
-
-console.error(error);
-
-alert(
-"บันทึกไม่สำเร็จ\n\n"+
-error.message
-);
-
-}
-
-}
-
+/* ================= MARK NOT DONE ================= */
 
 async function markNotDone(id){
 
-const duty=duties.find(d=>d.id===id);
+    const duty =
+        duties.find(d=>d.id===id);
 
-if(!duty){
+    if(!duty){
 
-alert("ไม่พบข้อมูลเวร");
+        alert("ไม่พบข้อมูลเวร");
 
-return;
+        return;
+
+    }
+
+    if(duty.status !== "waiting"){
+
+        alert("เวรนี้ถูกตรวจแล้ว");
+
+        return;
+
+    }
+
+    try{
+
+        await runTransaction(
+            db,
+            async transaction=>{
+
+                const dutyRef =
+                    doc(db,"duties",id);
+
+                const dutySnap =
+                    await transaction.get(
+                        dutyRef
+                    );
+
+                if(!dutySnap.exists()){
+
+                    throw new Error(
+                        "ไม่พบข้อมูลเวร"
+                    );
+
+                }
+
+                const freshDuty =
+                    dutySnap.data();
+
+                if(
+                    freshDuty.status !==
+                    "waiting"
+                ){
+
+                    throw new Error(
+                        "เวรนี้ถูกตรวจแล้ว"
+                    );
+
+                }
+
+
+                const studentRef =
+                    doc(
+                        db,
+                        "students",
+                        String(
+                            freshDuty.studentId
+                        )
+                    );
+
+                const studentSnap =
+                    await transaction.get(
+                        studentRef
+                    );
+
+                let oldScore = 100;
+
+                if(studentSnap.exists()){
+
+                    const data =
+                        studentSnap.data();
+
+                    if(
+                        typeof data.score ===
+                        "number"
+                    ){
+
+                        oldScore =
+                            data.score;
+
+                    }
+
+                }
+
+                const newScore =
+                    Math.max(
+                        0,
+                        oldScore - 1
+                    );
+
+
+                transaction.update(
+                    dutyRef,
+                    {
+                        status:"notdone",
+
+                        approved:true,
+
+                        scoreDeducted:true,
+
+                        checkedBy:
+                            currentUser.name,
+
+                        checkedAt:
+                            new Date().toISOString()
+                    }
+                );
+
+
+                if(studentSnap.exists()){
+
+                    transaction.update(
+                        studentRef,
+                        {
+                            score:newScore
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+        await addDoc(
+            collection(db,"history"),
+            {
+                time:
+                    new Date().toISOString(),
+
+                message:
+                    `✗ ${duty.studentName} ไม่ทำเวรวันที่ ${duty.dutyDate} หัก 1 คะแนน โดย ${currentUser.name}`,
+
+                type:"notdone",
+
+                studentId:
+                    duty.studentId,
+
+                dutyId:id,
+
+                deducted:1
+
+            }
+        );
+
+
+        alert(
+            "❌ บันทึกไม่ทำเวร\nหักคะแนน 1 คะแนน"
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "ดำเนินการไม่สำเร็จ\n\n"+
+            error.message
+        );
+
+    }
 
 }
 
-if(duty.status!=="waiting"){
 
-alert("เวรนี้ถูกตรวจแล้ว");
-
-return;
-
-}
-
-try{
-
-await runTransaction(
-db,
-async transaction=>{
-
-const dutyRef=
-doc(db,"duties",id);
-
-const dutySnap=
-await transaction.get(dutyRef);
-
-if(!dutySnap.exists()){
-
-throw new Error("ไม่พบข้อมูลเวร");
-
-}
-
-const freshDuty=dutySnap.data();
-
-if(freshDuty.status!=="waiting"){
-
-throw new Error(
-"เวรนี้ถูกตรวจหรือเปลี่ยนสถานะแล้ว"
-);
-
-}
-
-if(freshDuty.approved===true){
-
-throw new Error(
-"เวรนี้ได้รับการอนุมัติแล้ว"
-);
-
-}
-
-const studentRef=
-doc(
-db,
-"students",
-String(freshDuty.studentId)
-);
-
-const studentSnap=
-await transaction.get(studentRef);
-
-let oldScore=100;
-
-if(studentSnap.exists()){
-
-const studentData=
-studentSnap.data();
-
-if(typeof studentData.score==="number"){
-
-oldScore=studentData.score;
-
-}
-
-}
-
-const newScore=
-Math.max(0,oldScore-1);
-
-transaction.update(
-dutyRef,
-{
-status:"notdone",
-approved:true,
-scoreDeducted:true,
-checkedBy:currentUser.name,
-checkedAt:new Date().toISOString()
-}
-);
-
-if(studentSnap.exists()){
-
-transaction.update(
-studentRef,
-{
-score:newScore
-}
-);
-
-}
-
-}
-);
-
-
-await addDoc(
-collection(db,"history"),
-{
-time:new Date().toISOString(),
-message:
-`✗ ${duty.studentName} ไม่ทำเวรวันที่ ${duty.dutyDate} หัก 1 คะแนน โดย ${currentUser.name}`,
-type:"notdone",
-studentId:duty.studentId,
-dutyId:id,
-deducted:1
-}
-);
-
-alert(
-`❌ บันทึกไม่ทำเวร\nหักคะแนน 1 คะแนน`
-);
-
-}catch(error){
-
-console.error(error);
-
-alert(
-"ดำเนินการไม่สำเร็จ\n\n"+
-error.message
-);
-
-}
-
-}
-
+/* ================= SEND LEAVE ================= */
 
 function sendLeave(id){
 
-c
+    const duty =
+        duties.find(d=>d.id===id);
+
+    if(!duty){
+
+        alert("ไม่พบข้อมูลเวร");
+
+        return;
+
+    }
+
+    if(
+        String(duty.studentId) !==
+        String(currentUser.id)
+    ){
+
+        alert(
+            "ไม่สามารถขอลาแทนผู้อื่นได้"
+        );
+
+        return;
+
+    }
+
+    if(duty.status !== "waiting"){
+
+        alert(
+            "เวรนี้ไม่สามารถขอลาได้"
+        );
+
+        return;
+
+    }
+
+    selectedDutyId = id;
+
+    document
+        .getElementById("leaveReason")
+        .value = "";
+
+    document
+        .getElementById("leaveModal")
+        .classList.remove("hidden");
+
+}
+
+
+/* ================= CLOSE MODAL ================= */
+
+function closeLeaveModal(){
+
+    selectedDutyId = null;
+
+    document
+        .getElementById("leaveModal")
+        .classList.add("hidden");
+
+}
+
+
+/* ================= CONFIRM LEAVE ================= */
+
+async function confirmLeave(){
+
+    if(!selectedDutyId){
+
+        alert("ไม่พบเวรที่เลือก");
+
+        return;
+
+    }
+
+    const reason =
+        document
+            .getElementById("leaveReason")
+            .value
+            .trim();
+
+    if(!reason){
+
+        alert(
+            "กรุณาระบุเหตุผลในการขอหยุดเวร"
+        );
+
+        return;
+
+    }
+
+    const duty =
+        duties.find(
+            d=>d.id===selectedDutyId
+        );
+
+    if(!duty){
+
+        alert("ไม่พบข้อมูลเวร");
+
+        return;
+
+    }
+
+    try{
+
+        const requestRef =
+            doc(
+                collection(db,"requests")
+            );
+
+        await setDoc(
+            requestRef,
+            {
+                dutyId:duty.id,
+
+                studentId:
+                    duty.studentId,
+
+                studentName:
+                    duty.studentName,
+
+                dutyDate:
+                    duty.dutyDate,
+
+                reason:reason,
+
+                status:"pending",
+
+                createdAt:
+                    new Date().toISOString()
+            }
+        );
+
+
+        await updateDoc(
+            doc(
+                db,
+                "duties",
+                duty.id
+            ),
+            {
+                status:"leave_pending",
+
+                reason:reason,
+
+                approved:false
+            }
+        );
+
+
+        await addDoc(
+            collection(db,"history"),
+            {
+                time:
+                    new Date().toISOString(),
+
+                message:
+                    `📝 ${duty.studentName} ขอหยุดเวรวันที่ ${duty.dutyDate} เหตุผล: ${reason}`,
+
+                type:"leave_request",
+
+                studentId:
+                    duty.studentId,
+
+                dutyId:
+                    duty.id
+
+            }
+        );
+
+
+        closeLeaveModal();
+
+        alert(
+            "✅ ส่งคำขอหยุดเวรแล้ว\nรอครูหรือหัวหน้าเวรอนุมัติ"
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "ส่งคำขอไม่สำเร็จ\n\n"+
+            error.message
+        );
+
+    }
+
+}
+
+
+/* ================= HANDLE REQUEST ================= */
+
+async function handleRequest(
+    requestId,
+    action
+){
+
+    if(
+        currentRole !== "teacher" &&
+        currentRole !== "leader"
+    ){
+
+        return;
+
+    }
+
+    const request =
+        requests.find(
+            r=>r.id===requestId
+        );
+
+    if(!request){
+
+        alert("ไม่พบคำขอ");
+
+        return;
+
+    }
+
+    try{
+
+        const dutyRef =
+            doc(
+                db,
+                "duties",
+                request.dutyId
+            );
+
+        const requestRef =
+            doc(
+                db,
+                "requests",
+                requestId
+            );
+
+
+        if(action === "approve"){
+
+            await updateDoc(
+                requestRef,
+                {
+                    status:"approved",
+
+                    approvedBy:
+                        currentUser.name,
+
+                    approvedAt:
+                        new Date().toISOString()
+                }
+            );
+
+
+            await updateDoc(
+                dutyRef,
+                {
+                    status:"leave",
+
+                    approved:true,
+
+                    reason:
+                        request.reason
+                }
+            );
+
+
+            await addDoc(
+                collection(db,"history"),
+                {
+                    time:
+                        new Date().toISOString(),
+
+                    message:
+                        `✅ อนุมัติการลา ${request.studentName} วันที่ ${request.dutyDate} โดย ${currentUser.name}`,
+
+                    type:"leave_approved",
+
+                    studentId:
+                        request.studentId,
+
+                    dutyId:
+                        request.dutyId
+
+                }
+            );
+
+
+            alert(
+                "✅ อนุมัติการลาแล้ว\nไม่หักคะแนน"
+            );
+
+        }
+
+
+        else if(action === "reject"){
+
+            await updateDoc(
+                requestRef,
+                {
+                    status:"rejected",
+
+                    rejectedBy:
+                        currentUser.name,
+
+                    rejectedAt:
+                        new Date().toISOString()
+                }
+            );
+
+
+            await updateDoc(
+                dutyRef,
+                {
+                    status:"waiting",
+
+                    approved:false,
+
+                    reason:""
+                }
+            );
+
+
+            await addDoc(
+                collection(db,"history"),
+                {
+                    time:
+                        new Date().toISOString(),
+
+                    message:
+                        `❌ ปฏิเสธการลา ${request.studentName} วันที่ ${request.dutyDate} โดย ${currentUser.name}`,
+
+                    type:"leave_rejected",
+
+                    studentId:
+                        request.studentId,
+
+                    dutyId:
+                        request.dutyId
+
+                }
+            );
+
+
+            alert(
+                "❌ ปฏิเสธคำขอแล้ว"
+            );
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "ดำเนินการไม่สำเร็จ\n\n"+
+            error.message
+        );
+
+    }
+
+}
+
+
+/* ================= DASHBOARD ================= */
+
+function renderDashboard(){
+
+    const total =
+        duties.length;
+
+    const done =
+        duties.filter(
+            d=>d.status==="done"
+        ).length;
+
+    const notdone =
+        duties.filter(
+            d=>d.status==="notdone"
+        ).length;
+
+    const waiting =
+        duties.filter(
+            d=>
+                d.status==="waiting" ||
+                d.status==="leave_pending"
+        ).length;
+
+
+    document
+        .getElementById("dashboardCards")
+        .innerHTML = `
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📅
+                </div>
+
+                <div class="card-title">
+                    เวรทั้งหมด
+                </div>
+
+                <div class="card-value">
+                    ${total}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ✓
+                </div>
+
+                <div class="card-title">
+                    ทำแล้ว
+                </div>
+
+                <div class="card-value">
+                    ${done}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ✗
+                </div>
+
+                <div class="card-title">
+                    ไม่ทำ
+                </div>
+
+                <div class="card-value">
+                    ${notdone}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⏳
+                </div>
+
+                <div class="card-title">
+                    รอตรวจ
+                </div>
+
+                <div class="card-value">
+                    ${waiting}
+                </div>
+
+            </div>
+
+        `;
+
+
+    const today =
+        new Date()
+            .toISOString()
+            .split("T")[0];
+
+
+    let todayList =
+        duties.filter(
+            d=>d.dutyDate===today
+        );
+
+
+    if(currentRole==="student"){
+
+        todayList =
+            todayList.filter(
+                d=>
+                    String(d.studentId) ===
+                    String(currentUser.id)
+            );
+
+    }
+
+
+    const box =
+        document.getElementById(
+            "todayDuty"
+        );
+
+
+    if(todayList.length===0){
+
+        box.innerHTML =
+            `<div class="empty">
+                ไม่มีเวรวันนี้
+            </div>`;
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+        todayList.map(d=>`
+
+            <div
+                style="
+                padding:15px;
+                border:1px solid #e2e8f0;
+                border-radius:14px;
+                margin-bottom:10px;
+                ">
+
+                <b>
+                    ${d.studentName}
+                </b>
+
+                <br>
+
+                <span>
+                    ${d.dutyDate}
+                </span>
+
+                <br><br>
+
+                ${statusText(d.status)}
+
+                ${d.reason ?
+                    `<div style="margin-top:8px;color:#64748b">
+                        เหตุผล: ${d.reason}
+                    </div>` :
+                    ""
+                }
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* ================= DUTY TABLE ================= */
+
+function renderDuty(){
+
+    const table =
+        document.getElementById(
+            "dutyTable"
+        );
+
+
+    let list = [...duties];
+
+
+    if(currentRole==="student"){
+
+        list =
+            list.filter(
+                d=>
+                    String(d.studentId) ===
+                    String(currentUser.id)
+            );
+
+    }
+
+
+    list.sort(
+        (a,b)=>
+            String(a.dutyDate)
+                .localeCompare(
+                    String(b.dutyDate)
+                )
+    );
+
+
+    if(list.length===0){
+
+        table.innerHTML =
+            `<tr>
+                <td colspan="5">
+                    <div class="empty">
+                        ไม่มีข้อมูลเวร
+                    </div>
+                </td>
+            </tr>`;
+
+        return;
+
+    }
+
+
+    table.innerHTML =
+        list.map(d=>`
+
+            <tr>
+
+                <td>
+                    ${d.dutyDate || "-"}
+                </td>
+
+                <td>
+                    ${d.studentName || "-"}
+                </td>
+
+                <td>
+                    ${statusText(d.status)}
+                </td>
+
+                <td>
+                    ${d.reason || "-"}
+                </td>
+
+                <td>
+                    ${actionButtons(d)}
+                </td>
+
+            </tr>
+
+        `).join("");
+
+}
+
+
+/* ================= REQUEST TABLE ================= */
+
+function renderRequests(){
+
+    const table =
+        document.getElementById(
+            "requestTable"
+        );
+
+
+    let list =
+        [...requests];
+
+
+    if(currentRole==="student"){
+
+        list =
+            list.filter(
+                r=>
+                    String(r.studentId) ===
+                    String(currentUser.id)
+            );
+
+    }
+
+
+    list.sort(
+        (a,b)=>
+            String(b.createdAt)
+                .localeCompare(
+                    String(a.createdAt)
+                )
+    );
+
+
+    if(list.length===0){
+
+        table.innerHTML =
+            `<tr>
+                <td colspan="5">
+                    <div class="empty">
+                        ไม่มีคำขอหยุดเวร
+                    </div>
+                </td>
+            </tr>`;
+
+        return;
+
+    }
+
+
+    table.innerHTML =
+        list.map(r=>{
+
+            let status = "";
+
+            if(r.status==="pending"){
+
+                status =
+                    `<span class="status status-pending">
+                        ⏳ รออนุมัติ
+                    </span>`;
+
+            }else if(r.status==="approved"){
+
+                status =
+                    `<span class="status status-leave">
+                        ✓ อนุมัติแล้ว
+                    </span>`;
+
+            }else{
+
+                status =
+                    `<span class="status status-rejected">
+                        ✗ ปฏิเสธ
+                    </span>`;
+
+            }
+
+
+            let actions = "";
+
+            if(
+                (currentRole==="teacher" ||
+                 currentRole==="leader") &&
+                r.status==="pending"
+            ){
+
+                actions = `
+
+                    <button
+                        class="action-btn btn-approve"
+                        onclick="handleRequest('${r.id}','approve')">
+                        ✓ อนุมัติ
+                    </button>
+
+                    <button
+                        class="action-btn btn-reject"
+                        onclick="handleRequest('${r.id}','reject')">
+                        ✗ ปฏิเสธ
+                    </button>
+
+                `;
+
+            }
+
+
+            return `
+
+                <tr>
+
+                    <td>
+                        ${r.studentName || "-"}
+                    </td>
+
+                    <td>
+                        ${r.dutyDate || "-"}
+                    </td>
+
+                    <td>
+                        ${r.reason || "-"}
+                    </td>
+
+                    <td>
+                        ${status}
+                    </td>
+
+                    <td>
+                        ${actions || "-"}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* ================= STUDENT TABLE ================= */
+
+function renderStudents(){
+
+    const table =
+        document.getElementById(
+            "studentTable"
+        );
+
+
+    if(students.length===0){
+
+        table.innerHTML =
+            `<tr>
+                <td colspan="5">
+                    <div class="empty">
+                        ไม่มีข้อมูลนักเรียน
+                    </div>
+                </td>
+            </tr>`;
+
+        return;
+
+    }
+
+
+    table.innerHTML =
+        students.map(s=>{
+
+            const done =
+                duties.filter(
+                    d=>
+                        String(d.studentId) ===
+                        String(s.id) &&
+                        d.status==="done"
+                ).length;
+
+
+            const notdone =
+                duties.filter(
+                    d=>
+                        String(d.studentId) ===
+                        String(s.id) &&
+                        d.status==="notdone"
+                ).length;
+
+
+            return `
+
+                <tr>
+
+                    <td>
+                        ${s.id || "-"}
+                    </td>
+
+                    <td>
+                        ${s.name || "-"}
+                    </td>
+
+                    <td>
+                        <b>
+                            ${typeof s.score==="number"
+                                ? s.score
+                                : 100}
+                        </b>
+                    </td>
+
+                    <td>
+                        ✓ ${done}
+                    </td>
+
+                    <td>
+                        ✗ ${notdone}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* ================= LEADERBOARD ================= */
+
+function renderLeaderboard(){
+
+    const box =
+        document.getElementById(
+            "leaderboardList"
+        );
+
+
+    if(students.length===0){
+
+        box.innerHTML =
+            `<div class="empty">
+                ไม่มีข้อมูลนักเรียน
+            </div>`;
+
+        return;
+
+    }
+
+
+    const list =
+        [...students].sort(
+            (a,b)=>
+                (Number(b.score)||0) -
+                (Number(a.score)||0)
+        );
+
+
+    box.innerHTML =
+        list.map((s,index)=>{
+
+            const done =
+                duties.filter(
+                    d=>
+                        String(d.studentId) ===
+                        String(s.id) &&
+                        d.status==="done"
+                ).length;
+
+
+            const notdone =
+                duties.filter(
+                    d=>
+                        String(d.studentId) ===
+                        String(s.id) &&
+                        d.status==="notdone"
+                ).length;
+
+
+            return `
+
+                <div class="rank-item">
+
+                    <div class="rank-number">
+                        ${index+1}
+                    </div>
+
+                    <div class="rank-info">
+
+                        <div class="rank-name">
+                            ${s.name || "-"}
+                        </div>
+
+                        <div class="rank-detail">
+                            รหัส ${s.id || "-"}
+                            · ทำแล้ว ${done}
+                            · ไม่ทำ ${notdone}
+                        </div>
+
+                    </div>
+
+                    <div class="rank-score">
+                        ${typeof s.score==="number"
+                            ? s.score
+                            : 100}
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* ================= HISTORY ================= */
+
+function renderHistory(){
+
+    const table =
+        document.getElementById(
+            "historyTable"
+        );
+
+
+    let list =
+        [...histories];
+
+
+    if(currentRole==="student"){
+
+        list =
+            list.filter(
+                h=>
+                    String(h.studentId) ===
+                    String(currentUser.id)
+            );
+
+    }
+
+
+    list.sort(
+        (a,b)=>
+            String(b.time)
+                .localeCompare(
+                    String(a.time)
+                )
+    );
+
+
+    if(list.length===0){
+
+        table.innerHTML =
+            `<tr>
+                <td colspan="2">
+                    <div class="empty">
+                        ไม่มีประวัติ
+                    </div>
+                </td>
+            </tr>`;
+
+        return;
+
+    }
+
+
+    table.innerHTML =
+        list.map(h=>`
+
+            <tr>
+
+                <td>
+                    ${formatTime(h.time)}
+                </td>
+
+                <td>
+                    ${h.message || "-"}
+                </td>
+
+            </tr>
+
+        `).join("");
+
+}
+
+
+/* ================= TIME ================= */
+
+function formatTime(value){
+
+    if(!value){
+        return "-";
+    }
+
+    try{
+
+        return new Date(value)
+            .toLocaleString(
+                "th-TH",
+                {
+                    dateStyle:"short",
+                    timeStyle:"short"
+                }
+            );
+
+    }catch(error){
+
+        return value;
+
+    }
+
+}
+
+
+/* ================= RENDER ALL ================= */
+
+function renderAll(){
+
+    if(!currentUser){
+        return;
+    }
+
+    renderDashboard();
+
+    renderDuty();
+
+    renderRequests();
+
+    renderStudents();
+
+    renderLeaderboard();
+
+    renderHistory();
+
+}
+
+
+/* ================= GLOBAL FUNCTIONS ================= */
+
+/*
+    สำคัญ:
+    เพราะ Script เป็น type="module"
+    ต้องนำฟังก์ชันออกมาให้ onclick
+    ใน HTML เรียกใช้ได้
+*/
+
+window.selectRole = selectRole;
+
+window.login = login;
+
+window.logout = logout;
+
+window.showPage = showPage;
+
+window.markDone = markDone;
+
+window.markNotDone = markNotDone;
+
+window.sendLeave = sendLeave;
+
+window.confirmLeave = confirmLeave;
+
+window.closeLeaveModal = closeLeaveModal;
+
+window.handleRequest = handleRequest;
+
+
+/* ================= START ================= */
+
+initializeSystem();
+
+</script>
+
+</body>
+</html>
